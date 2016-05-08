@@ -10,7 +10,7 @@
 	
 	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-  		<property name="locations" value="classpath:net/arpa92/fileupload/secret.properties"/>
+  		<property name="locations" value="classpath:net/arpa92/fileupload/config.properties"/>
 	</bean>
 	
 	
