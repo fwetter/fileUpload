@@ -9,9 +9,14 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
 	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+  		<property name="locations" value="classpath:net/arpa92/fileupload/secret.properties"/>
+	</bean>
+	
+	
 	<bean id="amazonS3Dao" class="net.arpa92.fileupload.AmazonS3Dao">
-		<constructor-arg index="0" value="AKIAI4KSPTDECCKV6AVQ"></constructor-arg>
-		<constructor-arg index="1" value="XHEzuelbk3qCyNhFyBBhJlBlFlovIeITRMzDn6xl"></constructor-arg>
+		<constructor-arg index="0" value="${s3.accessKeyId}"></constructor-arg>
+		<constructor-arg index="1" value="${s3.secretAccessKey}"></constructor-arg>
 		<constructor-arg index="2" value="bookingable"></constructor-arg>
 	</bean>
 	
