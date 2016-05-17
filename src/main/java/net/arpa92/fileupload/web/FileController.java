@@ -207,12 +207,20 @@ public class FileController {
 		return "upload"; 
 	}
 
+	
+	/*
+	 *  @RequestMapping(value = "/mileage/locations", method = RequestMethod.GET)
+    public @ResponseBody List<ZipSystem> getLocations(@RequestParam(value = "q", required = true) String cityName, @RequestParam(value="limit", required = false) String limit) {
+	 */
+	
 	// ================= LIST DIR
-	@RequestMapping(value="/admin/ls.html", method=RequestMethod.GET)
-	public @ResponseBody LinkedList<FileMeta> getDir(@RequestParam("path") String path,  HttpServletRequest request, Model req_model ) {
+	@RequestMapping(value="/admin/ls", method=RequestMethod.GET)
+	public @ResponseBody LinkedList<FileMeta> getDir(@RequestParam("path") String path ) {
 
-		System.out.println("ApplicationRealPath: "+ getApplicationRealPath(request) + "\t " + localUploadDir);
+		//System.out.println("ApplicationRealPath: "+ getApplicationRealPath(request) + "\t " + localUploadDir);
 
+		
+		
 		path = checkPath(path);
 
 		//String callb = request.getParameter("callb");
@@ -235,12 +243,14 @@ public class FileController {
 			e.printStackTrace();
 		}
 
-		
+		//response.setContentType("application/javascript");
 		
 		
 		// result will be like this
 		// [{"fileName":"app_engine-85x77.png","fileSize":"8 Kb","fileType":"image/png"},...]
 		return files;
+		
+		//return (callBack+"("+files+")");
 
 
 		//return null; 

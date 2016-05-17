@@ -13,6 +13,8 @@
   		<property name="locations" value="classpath:net/arpa92/fileupload/config.properties"/>
 	</bean>
 	
+	<bean id="jsonpCallbackFilter" class="net.arpa92.web.servlet.filter.JsonpCallbackFilter"  />
+	
 	
 	<bean id="amazonS3Dao" class="net.arpa92.fileupload.AmazonS3Dao">
 		<constructor-arg index="0" value="${s3.accessKeyId}"></constructor-arg>
